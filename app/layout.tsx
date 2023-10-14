@@ -30,7 +30,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" suppressHydrationWarning>
+        <html lang="es" suppressHydrationWarning>
             <head />
             <body
                 className={clsx(
@@ -41,7 +41,7 @@ export default function RootLayout({
                 <Providers
                     themeProps={{ attribute: "class", defaultTheme: "dark" }}
                 >
-                    <div className="relative flex flex-col h-screen">
+                    <div className="relative flex flex-col h-full bg-gradient-to-bl from-amber-100 via-amber-200 to-yellow-500 dark:bg-gradient-to-br dark:from-amber-400 dark:via-amber-600 dark:to-yellow-900">
                         <Navbar />
                         <main className="flex-grow">{children}</main>
                         <footer className="w-full flex items-center justify-center py-3">
