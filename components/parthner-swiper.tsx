@@ -35,6 +35,7 @@ export default function Sponsors() {
                         <Image
                             isBlurred
                             width={240}
+                            height={240}
                             src={sponsor.src}
                             alt={sponsor.alt}
                             className="m-1"
