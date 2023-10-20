@@ -34,7 +34,7 @@ export default function Home() {
                         Corre hacia la grandeza con nosotros.
                     </p>
                 </section>
-                <section className="absolute flex justify-center w-full h-40 top-[calc(100%-160px)] left-0 overflow-hidden backdrop-blur-xl bg-black/30">
+                <section className="absolute w-full h-40 top-[calc(100%-160px)] left-0 overflow-hidden backdrop-blur-xl bg-black/30">
                     <Sponsors />
                 </section>
             </div>
