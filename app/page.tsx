@@ -7,7 +7,7 @@ export default function Home() {
         <section className="flex flex-col items-center justify-center gap-4 bg-transparent">
             <div className="relative h-screen w-full overflow-hidden text-center justify-center">
                 <video
-                    className="absolute brightness-[0.25] right-1/2 bottom-1/2 min-w-full min-h-full max-w-none w-auto h-auto translate-x-1/2 translate-y-1/2 z-0 dark:block "
+                    className="absolute brightness-[0.25] right-1/2 bottom-1/2 min-w-full min-h-full max-w-none w-auto h-auto translate-x-1/2 translate-y-1/2 z-0"
                     autoPlay={true}
                     muted={true}
                     preload="auto"
@@ -38,11 +38,11 @@ export default function Home() {
                     <Sponsors />
                 </section>
             </div>
-            <section className="flex justify-center items-center h-[512px] w-full">
-                <div className="flex items-center justify-between h-96 w-3/4 max-w-4xl rounded-md bg-[url('/img/landing/fondonoise2.jpg')] bg-cover">
-                    <div className="flex w-1/2 h-full justify-center items-center">
+            <section className="flex justify-center items-center h-56 lg:h-[512px]  w-full">
+                <div className="flex items-center justify-between h-32 w-11/12 lg:h-96 lg:w-3/4 max-w-4xl rounded-xl bg-black/30">
+                    <div className="flex w-1/3 h-full justify-center items-center">
                         <video
-                            className="min-w-full min-h-full max-w-none max-h-none w-full h-full bg-cover"
+                            className="relative min-w-full min-h-full max-w-none max-h-none w-full h-full object-cover rounded-l-xl"
                             autoPlay={true}
                             muted={true}
                             preload="auto"
@@ -52,13 +52,16 @@ export default function Home() {
                             <source src="/videos/videoplayback.webm" />
                         </video>
                     </div>
-                    <div className="flex flex-col w-1/2 h-auto p-4 justify-center items-star">
+                    <div className="flex flex-col w-2/3 h-full p-4 justify-center items-star">
                         <h2
-                            className={barlow.className + " text-4xl font-bold"}
+                            className={
+                                barlow.className +
+                                " text-xl lg:text-4xl font-bold bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent"
+                            }
                         >
-                            Preparación para el Éxito
+                            PREPARACIÓN PARA EL ÉXITO
                         </h2>
-                        <p className="text-xl font-normal mt-4">
+                        <p className="text-sm lg:text-xl font-normal mt-2 lg:mt-4 overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3]">
                             Somos una empresa de renombre que produce videos de
                             entrenamiento de última generación y ofrece
                             artículos de alto rendimiento deportivo. Inspiramos
@@ -68,11 +71,26 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section className="flex justify-center items-center h-[512px] w-full">
-                <div className="flex items-center justify-around h-96 w-3/4 max-w-4xl">
-                    <Videocar />
-                    <Videocar />
-                    <Videocar />
+            <section className="flex py-12 justify-center items-center h-auto w-full">
+                <div className="flex flex-wrap gap-5 items-center justify-center sm:justify-between h-auto w-3/4 max-w-4xl">
+                    <Videocar
+                        srcimg="/img/runnig.jpg"
+                        srcvid="/videos/videocard.mp4"
+                        title="VIDEO CARD"
+                        subtitle="Subtitle"
+                    />
+                    <Videocar
+                        srcimg="/img/landing/fondonoise.webp"
+                        srcvid="/videos/videocard2.mp4"
+                        title="VIDEO CARD"
+                        subtitle="Subtitle"
+                    />
+                    <Videocar
+                        srcimg="/img/landing/fondonoise2.jpg"
+                        srcvid="/videos/videocard3.mp4"
+                        title="VIDEO CARD"
+                        subtitle="Subtitle"
+                    />
                 </div>
             </section>
         </section>
