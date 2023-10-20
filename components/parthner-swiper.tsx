@@ -32,14 +32,16 @@ export default function Sponsors() {
             >
                 {sponsor.map((sponsor) => (
                     <SwiperSlide key={sponsor.alt}>
-                        <Image
-                            isBlurred
-                            width={240}
-                            height={240}
-                            src={sponsor.src}
-                            alt={sponsor.alt}
-                            className="m-1"
-                        />
+                        <div className="flex items-center h-60 w-60">
+                            <Image
+                                isBlurred
+                                width={240}
+                                height={240}
+                                src={sponsor.src}
+                                alt={sponsor.alt}
+                                className="m-1"
+                            />
+                        </div>
                     </SwiperSlide>
                 ))}
             </Swiper>
