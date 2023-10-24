@@ -9,8 +9,9 @@
     margin-right: auto;
 }
 
-.swiper-slide {
+#swiper-slide {
+    display: contents;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }

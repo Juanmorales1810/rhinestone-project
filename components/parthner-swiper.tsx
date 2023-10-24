@@ -31,7 +31,7 @@ export default function Sponsors() {
                 breakpoints={breakpoints}
             >
                 {sponsor.map((sponsor) => (
-                    <SwiperSlide key={sponsor.alt}>
+                    <SwiperSlide key={sponsor.alt} id="swiper-slide">
                         <div className="flex items-center h-40 w-40">
                             <Image
                                 isBlurred
