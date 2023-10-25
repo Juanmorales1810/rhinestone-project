@@ -18,7 +18,7 @@ import Link from "next/link";
 export default function Home() {
     return (
         <section className="flex flex-col items-center justify-center gap-4 bg-transparent">
-            <div className="relative h-screen w-full overflow-hidden text-center justify-center">
+            <div className="relative text-center justify-center h-[100dvh] w-full overflow-hidden md:h-screen">
                 <video
                     className="absolute brightness-[0.25] right-1/2 bottom-1/2 min-w-full min-h-full max-w-none w-auto h-auto translate-x-1/2 translate-y-1/2 z-0"
                     autoPlay={true}

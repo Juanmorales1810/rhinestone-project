@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
+import { barlow } from "@/config/fonts";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import { Link } from "@nextui-org/link";
@@ -47,14 +48,28 @@ export default function RootLayout({
                         <footer className="w-full flex items-center justify-center py-3">
                             <Link
                                 isExternal
-                                className="flex items-center gap-1 text-current"
-                                href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
-                                title="nextui.org homepage"
+                                className="flex items-center  gap-1 text-current"
+                                href="https://github.com/Juanmorales1810"
+                                title="GitHub"
                             >
-                                <span className="text-default-600">
-                                    Powered by
-                                </span>
-                                <p className="text-primary">NextUI</p>
+                                <p
+                                    className={
+                                        barlow.className +
+                                        " text-xl font-normal"
+                                    }
+                                >
+                                    © Echo con amor por
+                                </p>
+                                <p
+                                    className={
+                                        barlow.className +
+                                        " text-xl font-normal bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent"
+                                    }
+                                >
+                                    {" "}
+                                    Juan Morales.
+                                </p>
+                                <p>💖</p>
                             </Link>
                         </footer>
                     </div>
