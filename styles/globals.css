@@ -15,3 +15,30 @@
     justify-content: center;
     align-items: center;
 }
+
+.scrollsha::-webkit-scrollbar {
+    width: 6px; /* width of the entire scrollbar */
+}
+
+.scrollsha::-webkit-scrollbar-track {
+    background: rgba(40, 40, 40, 0.34); /* color of the tracking area */
+}
+
+.scrollsha::-webkit-scrollbar-thumb {
+    background-color: rgb(52, 52, 52); /* color of the scroll thumb */
+    border-radius: 15px; /* roundness of the scroll thumb */
+    border: 2px solid rgba(56, 56, 56, 0.225); /* creates padding around scroll thumb */
+}
+body::-webkit-scrollbar {
+    width: 8px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: #eab20800; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #c1981e; /* color of the scroll thumb */
+    border-radius: 15px; /* roundness of the scroll thumb */
+    border: none;
+}

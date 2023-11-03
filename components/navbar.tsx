@@ -16,8 +16,15 @@ import { barlow } from "@/config/fonts";
 
 export const Navbar = () => {
     return (
-        <NextUINavbar maxWidth="xl" position="static" className="absolute">
-            <NavbarContent className="basis-1/5 sm:basis-full" justify="center">
+        <NextUINavbar
+            maxWidth="xl"
+            position="static"
+            className="absolute bg-black/10 dark:bg-black/30"
+        >
+            <NavbarContent
+                className="basis-1/5 sm:basis-full "
+                justify="center"
+            >
                 <NavbarBrand as="li" className="gap-3 max-w-fit">
                     <NextLink
                         className="flex justify-start items-center gap-1"
@@ -26,7 +33,7 @@ export const Navbar = () => {
                         <p
                             className={
                                 barlow.className +
-                                " text-lg font-bold bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent"
+                                " text-lg font-bold text-black dark:bg-gradient-to-br dark:from-amber-300 dark:via-orange-300 dark:to-yellow-500 dark:bg-clip-text dark:text-transparent"
                             }
                         >
                             RHINESTONE PROJECT
@@ -39,7 +46,7 @@ export const Navbar = () => {
                             <NextLink
                                 className={
                                     barlow.className +
-                                    " data-[active=true]:text-primary data-[active=true]:font-normal font-bold text-lg bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent"
+                                    " data-[active=true]:text-primary data-[active=true]:font-normal font-bold text-black text-lg dark:bg-gradient-to-br dark:from-amber-300 dark:via-orange-300 dark:to-yellow-500 dark:bg-clip-text dark:text-transparent"
                                 }
                                 color="foreground"
                                 href={item.href}

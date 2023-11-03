@@ -18,9 +18,9 @@ import Link from "next/link";
 export default function Home() {
     return (
         <section className="flex flex-col items-center justify-center gap-4 bg-transparent">
-            <div className="relative text-center justify-center h-[100dvh] w-full overflow-hidden md:h-screen">
+            <section className="relative text-center justify-center h-[100svh] w-full overflow-hidden md:h-screen">
                 <video
-                    className="absolute brightness-[0.25] right-1/2 bottom-1/2 min-w-full min-h-full max-w-none w-auto h-auto translate-x-1/2 translate-y-1/2 z-0"
+                    className="absolute brightness-[1.25] right-1/2 bottom-1/2 min-w-full min-h-full max-w-none w-auto h-auto translate-x-1/2 translate-y-1/2 z-0 dark:brightness-[0.25]"
                     autoPlay={true}
                     muted={true}
                     preload="auto"
@@ -41,16 +41,16 @@ export default function Home() {
                     <p
                         className={
                             barlow.className +
-                            " mt-4 text-2xl font-normal lg:text-4xl"
+                            " mt-4 text-2xl font-normal lg:text-4xl text-white"
                         }
                     >
                         Corre hacia la grandeza con nosotros.
                     </p>
                 </section>
-                <section className="absolute w-full h-40 top-[calc(100%-160px)] left-0 overflow-hidden backdrop-blur-xl bg-black/30">
+                <section className="absolute w-full h-40 top-[calc(100%-160px)] left-0 overflow-hidden backdrop-blur-xl bg-black/10 ">
                     <Sponsors />
                 </section>
-            </div>
+            </section>
             <section className="flex justify-center items-center h-56 lg:h-[512px] w-full">
                 <div className="flex items-center justify-between h-32 w-11/12 lg:h-96 lg:w-3/4 max-w-4xl rounded-xl bg-black/30">
                     <div className="flex w-1/3 h-full justify-center items-center">
