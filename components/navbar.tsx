@@ -19,7 +19,7 @@ export const Navbar = () => {
         <NextUINavbar
             maxWidth="xl"
             position="static"
-            className="absolute bg-black/10 dark:bg-black/30"
+            className="absolute bg-amber-100/30 dark:bg-black/30"
         >
             <NavbarContent
                 className="basis-1/5 sm:basis-full "

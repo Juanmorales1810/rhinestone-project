@@ -1,5 +1,6 @@
 "use client";
 import Pricecard from "@/components/pricecard";
+import Tableprice from "@/components/table";
 import { tarjetasPrecios } from "@/config/cardsprice-db";
 
 export default function PricingPage() {
@@ -25,6 +26,9 @@ export default function PricingPage() {
                         />
                     );
                 })}
+            </section>
+            <section className="flex flex-wrap justify-center gap-4 items-center h-auto w-full mt-16 md:mt-40">
+                <Tableprice />
             </section>
         </section>
     );

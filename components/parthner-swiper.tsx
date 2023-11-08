@@ -39,7 +39,7 @@ export default function Sponsors() {
                                 height={160}
                                 src={sponsor.src}
                                 alt={sponsor.alt}
-                                className="m-1"
+                                className="m-1 invert dark:invert-0"
                             />
                         </div>
                     </SwiperSlide>

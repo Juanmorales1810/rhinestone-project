@@ -89,7 +89,11 @@ export default function Pricecard(props: PricecardProps) {
                     Contactar
                 </Button>
             </div>
-            <Modal isOpen={isOpen} backdrop="blur" onOpenChange={onOpenChange}>
+            <Modal
+                isOpen={isOpen}
+                backdrop="opaque"
+                onOpenChange={onOpenChange}
+            >
                 <ModalContent>
                     {(onClose) => (
                         <>
@@ -134,6 +138,7 @@ export default function Pricecard(props: PricecardProps) {
                                         barlow.className +
                                         " text-base font-bold"
                                     }
+                                    onPress={handleConfetti}
                                 >
                                     Contactar
                                 </Button>

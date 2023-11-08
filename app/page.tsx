@@ -47,12 +47,12 @@ export default function Home() {
                         Corre hacia la grandeza con nosotros.
                     </p>
                 </section>
-                <section className="absolute w-full h-40 top-[calc(100%-160px)] left-0 overflow-hidden backdrop-blur-xl bg-black/10 ">
+                <section className="absolute w-full h-40 top-[calc(100%-160px)] left-0 overflow-hidden backdrop-blur-xl bg-amber-100/30 dark:bg-black/30">
                     <Sponsors />
                 </section>
             </section>
             <section className="flex justify-center items-center h-56 lg:h-[512px] w-full">
-                <div className="flex items-center justify-between h-32 w-11/12 lg:h-96 lg:w-3/4 max-w-4xl rounded-xl bg-black/30">
+                <div className="flex items-center justify-between h-32 w-11/12 lg:h-96 lg:w-3/4 max-w-4xl rounded-xl bg-amber-200/30">
                     <div className="flex w-1/3 h-full justify-center items-center">
                         <video
                             className="relative min-w-full min-h-full max-w-none max-h-none w-full h-full object-cover rounded-l-xl"
@@ -115,7 +115,7 @@ export default function Home() {
                 >
                     Contacto
                 </h2>
-                <div className="flex flex-col items-center justify-around h-auto w-11/12 md:flex-row lg:h-auto lg:w-3/4 max-w-4xl rounded-xl bg-black/30">
+                <div className="flex flex-col items-center justify-around h-auto w-11/12 md:flex-row lg:h-auto lg:w-3/4 max-w-4xl rounded-xl bg-amber-200/30">
                     <div className="flex flex-col p-3 w-full h-full md:w-1/2">
                         <h3
                             className={
