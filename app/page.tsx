@@ -62,7 +62,7 @@ export default function Home() {
                             loop={true}
                             poster=""
                         >
-                            <source src="/videos/videoplayback.webm" />
+                            <source src="/videos/videocard2.mp4" />
                         </video>
                     </div>
                     <div className="flex flex-col w-2/3 h-full p-4 justify-center items-star">

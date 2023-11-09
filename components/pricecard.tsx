@@ -33,7 +33,7 @@ export default function Pricecard(props: PricecardProps) {
     };
 
     return (
-        <div className="flex flex-col justify-between items-center w-96 h-auto md:h-[430px] rounded-lg bg-black/60">
+        <div className="flex flex-col items-center w-full md:w-80 h-auto rounded-lg bg-black/60">
             <div className="flex flex-col justify-center">
                 <h2
                     className={

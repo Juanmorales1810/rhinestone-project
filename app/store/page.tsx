@@ -5,7 +5,7 @@ import { tarjetasPrecios } from "@/config/cardsprice-db";
 
 export default function PricingPage() {
     return (
-        <section className="w-full">
+        <section className="flex flex-col justify-center items-center w-full">
             <h1 className="text-6xl font-bold bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent lg:text-9xl  dark:from-amber-100 dark:via-orange-100">
                 Precios
             </h1>
@@ -14,7 +14,7 @@ export default function PricingPage() {
                 trabajadas.
             </p>
             <hr className="mb-10" />
-            <section className="flex flex-wrap justify-center gap-4 items-center h-auto w-full">
+            <section className="flex flex-wrap justify-between gap-2 items-center h-auto w-full max-w-5xl px-2 md:px-0">
                 {tarjetasPrecios.map((tarjeta, index) => {
                     return (
                         <Pricecard
@@ -27,7 +27,7 @@ export default function PricingPage() {
                     );
                 })}
             </section>
-            <section className="flex flex-wrap justify-center gap-4 items-center h-auto w-full mt-16 md:mt-40">
+            <section className="flex justify-center items-center h-auto w-full max-w-5xl mt-16 md:mt-20 px-2 md:px-0">
                 <Tableprice />
             </section>
         </section>

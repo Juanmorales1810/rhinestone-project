@@ -47,9 +47,9 @@ export default function Videocar(props: VideoCardProps) {
         >
             <Image
                 src={srcimg}
-                width={224}
+                width={240}
                 height={320}
-                objectFit="cover"
+                priority={true}
                 alt="Picture of the author"
                 className={`absolute brightness-[0.3] right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 rounded-xl object-cover w-full h-full z-20  ${
                     isMouseOver
@@ -71,7 +71,7 @@ export default function Videocar(props: VideoCardProps) {
                     {title}
                 </h2>
                 <p
-                    className={`text-xl font-bold select-none ${
+                    className={`text-xl font-bold select-none text-white ${
                         isMouseOver
                             ? "animate-fade-down animate-once animate-duration-100 animate-delay-100 animate-ease-in-out animate-reverse "
                             : "animate-fade-up animate-once animate-duration-500 animate-delay-300 animate-ease-in-out animate-normal"
@@ -97,7 +97,7 @@ export default function Videocar(props: VideoCardProps) {
             <video
                 controls={false}
                 ref={video2Ref}
-                className={`absolute saturate-150 max-w-none max-h-none w-[calc(100%-2px)] h-[calc(100%-2px)] right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 rounded-2xl z-0 object-cover ${
+                className={`absolute hidden md:block saturate-150 max-w-none max-h-none w-[calc(100%-2px)] h-[calc(100%-2px)] right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 rounded-2xl z-0 object-cover ${
                     isMouseOver
                         ? "blur-2xl ease-out duration-1000"
                         : "blur-none ease-out duration-400"
