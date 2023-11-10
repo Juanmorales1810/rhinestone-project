@@ -83,9 +83,7 @@ export default function Videocar(props: VideoCardProps) {
             <video
                 controls={false}
                 ref={video1Ref}
-                className={`absolute max-w-none max-h-none w-[calc(100%-2px)] h-[calc(100%-2px)] right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 z-10 rounded-xl object-cover ${
-                    isMouseOver ? " " : " "
-                }`}
+                className="absolute max-w-none max-h-none w-[calc(100%-2px)] h-[calc(100%-2px)] right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 z-10 rounded-xl object-cover"
                 autoPlay={true}
                 muted={true}
                 preload="auto"
