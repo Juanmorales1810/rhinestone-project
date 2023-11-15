@@ -1,3 +1,5 @@
+"use client";
+
 import Sponsors from "@/components/parthner-swiper";
 import Videocar from "@/components/videocard";
 import { Input } from "@nextui-org/input";
@@ -14,13 +16,26 @@ import {
 } from "@/components/icons";
 import { barlow } from "@/config/fonts";
 import Link from "next/link";
+import { Variants, motion } from "framer-motion";
 
 export default function Home() {
+    const Variants: Variants = {
+        offscreen: {
+            opacity: 0,
+        },
+        onscreen: {
+            opacity: 1,
+
+            transition: {
+                duration: 1.5,
+            },
+        },
+    };
     return (
         <section className="flex flex-col items-center justify-center gap-4 bg-transparent">
             <section className="relative text-center justify-center h-[100svh] w-full overflow-hidden md:h-screen">
                 <video
-                    className="absolute brightness-[1.25] right-1/2 bottom-1/2 min-w-full min-h-full max-w-none w-auto h-auto translate-x-1/2 translate-y-1/2 z-0 dark:brightness-[0.25]"
+                    className="absolute brightness-[1.25] right-1/2 bottom-1/2 min-w-full min-h-full max-w-none w-auto h-auto translate-x-1/2 translate-y-1/2 z-0 dark:brightness-[0.25] blur-sm md:blur-none"
                     autoPlay={true}
                     muted={true}
                     preload="auto"
@@ -29,11 +44,11 @@ export default function Home() {
                 >
                     <source src="/videos/videoplayback.webm" />
                 </video>
-                <section className="absolute max-w-sm h-44 top-[calc(30%-88px)] left-[calc(50%-192px)] lg:max-w-xl lg:h-80 lg:top-[calc(30%-160px)] lg:left-[calc(50%-288px)] overflow-hidden">
+                <div className="absolute w-full max-w-sm h-44 top-[calc(30%-88px)] left-[calc(50%-192px)] lg:w-full lg:max-w-2xl lg:h-96 lg:top-[calc(30%-160px)] lg:left-[calc(50%-336px)]">
                     <h1
                         className={
                             barlow.className +
-                            " text-6xl font-bold bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent lg:text-9xl"
+                            " text-6xl font-bold bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent lg:text-9xl drop-shadow-[0_0px_7px_rgba(255,165,0,0.75)]"
                         }
                     >
                         RHINESTONE PROJECT
@@ -41,18 +56,24 @@ export default function Home() {
                     <p
                         className={
                             barlow.className +
-                            " mt-4 text-2xl font-normal lg:text-4xl text-white"
+                            " mt-4 text-2xl font-normal lg:text-4xl text-white drop-shadow-[0_0px_7px_rgba(0,0,0,0.95)] dark:drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)]"
                         }
                     >
                         Corre hacia la grandeza con nosotros.
                     </p>
-                </section>
+                </div>
                 <section className="absolute w-full h-40 top-[calc(100%-160px)] left-0 overflow-hidden backdrop-blur-xl bg-amber-100/30 dark:bg-black/30">
                     <Sponsors />
                 </section>
             </section>
-            <section className="flex justify-center items-center h-56 lg:h-[512px] w-full">
-                <div className="flex items-center justify-between h-32 w-11/12 lg:h-96 lg:w-3/4 max-w-4xl rounded-xl bg-amber-200/30">
+            <motion.section
+                variants={Variants}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.5 }}
+                className="flex justify-center items-center h-56 lg:h-[512px] w-full"
+            >
+                <div className="flex items-center justify-between h-32 w-11/12 lg:h-96 lg:w-3/4 max-w-4xl rounded-xl bg-yellow-100 dark:bg-yellow-400/10 shadow-xl">
                     <div className="flex w-1/3 h-full justify-center items-center">
                         <video
                             className="relative min-w-full min-h-full max-w-none max-h-none w-full h-full object-cover rounded-l-xl"
@@ -83,8 +104,14 @@ export default function Home() {
                         </p>
                     </div>
                 </div>
-            </section>
-            <section className="flex py-12 justify-center items-center h-auto w-full">
+            </motion.section>
+            <motion.section
+                variants={Variants}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.7 }}
+                className="flex py-12 justify-center items-center h-auto w-full"
+            >
                 <div className="flex flex-wrap gap-5 items-center justify-center sm:justify-between h-auto w-3/4 max-w-4xl">
                     <Videocar
                         srcimg="/img/runnig.jpg"
@@ -105,8 +132,14 @@ export default function Home() {
                         subtitle="Subtitle"
                     />
                 </div>
-            </section>
-            <section className="flex flex-col justify-center items-center h-auto lg:h-[640px] w-full">
+            </motion.section>
+            <motion.section
+                variants={Variants}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.7 }}
+                className="flex flex-col justify-center items-center h-auto lg:h-[640px] w-full"
+            >
                 <h2
                     className={
                         barlow.className +
@@ -115,7 +148,7 @@ export default function Home() {
                 >
                     Contacto
                 </h2>
-                <div className="flex flex-col items-center justify-around h-auto w-11/12 md:flex-row lg:h-auto lg:w-3/4 max-w-4xl rounded-xl bg-amber-200/30">
+                <div className="flex flex-col items-center justify-around h-auto w-11/12 md:flex-row lg:h-auto lg:w-3/4 max-w-4xl rounded-xl bg-yellow-100 dark:dark:bg-yellow-400/10 shadow-xl">
                     <div className="flex flex-col p-3 w-full h-full md:w-1/2">
                         <h3
                             className={
@@ -211,12 +244,12 @@ export default function Home() {
                                 variant="shadow"
                                 className="py-2"
                             >
-                                Send
+                                Enviar
                             </Button>
                         </form>
                     </div>
                 </div>
-            </section>
+            </motion.section>
         </section>
     );
 }

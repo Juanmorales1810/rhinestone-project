@@ -1,4 +1,4 @@
-import { ScrollShadow } from "@nextui-org/scroll-shadow";
+"use client";
 import { barlow } from "@/config/fonts";
 import { Button } from "@nextui-org/button";
 import { Chip } from "@nextui-org/chip";
@@ -11,6 +11,7 @@ import {
     useDisclosure,
 } from "@nextui-org/modal";
 import confetti from "canvas-confetti";
+import { motion } from "framer-motion";
 interface PricecardProps {
     // Define las propiedades y sus tipos aquí.
     nombre: string;
@@ -33,7 +34,13 @@ export default function Pricecard(props: PricecardProps) {
     };
 
     return (
-        <div className="flex flex-col items-center w-full md:w-80 h-auto rounded-lg bg-black/60">
+        <motion.div
+            whileHover={{
+                scale: 1.1,
+                transition: { duration: 0.3 },
+            }}
+            className="flex flex-col items-center w-full md:w-80 h-auto rounded-lg transition-background bg-yellow-100 dark:dark:bg-yellow-400/10 dark:hover:bg-slate-900"
+        >
             <div className="flex flex-col justify-center">
                 <h2
                     className={
@@ -43,7 +50,7 @@ export default function Pricecard(props: PricecardProps) {
                 >
                     {nombre}
                 </h2>
-                <p className="p-2 md:p-4 text-white">
+                <p className="p-2 md:p-4 text-black dark:text-white">
                     {descripcion}{" "}
                     <span className="text-yellow-500">(máximo 15 días)</span>
                 </p>
@@ -102,25 +109,20 @@ export default function Pricecard(props: PricecardProps) {
                             </ModalHeader>
                             <ModalBody>
                                 <ul className="p-1 w-full flex flex-col justify-center items-start text-left">
-                                    <ScrollShadow className="w-full h-auto pr-0.5 scrollsha">
-                                        {servicios.map((servicio, index) => {
-                                            return (
-                                                <li
-                                                    className="pb-1"
-                                                    key={index}
+                                    {servicios.map((servicio, index) => {
+                                        return (
+                                            <li className="pb-1" key={index}>
+                                                <p
+                                                    className={
+                                                        barlow.className +
+                                                        "  pb-2 text-base font-normal"
+                                                    }
                                                 >
-                                                    <p
-                                                        className={
-                                                            barlow.className +
-                                                            "  pb-2 text-base font-normal"
-                                                        }
-                                                    >
-                                                        {servicio}
-                                                    </p>
-                                                </li>
-                                            );
-                                        })}
-                                    </ScrollShadow>
+                                                    {servicio}
+                                                </p>
+                                            </li>
+                                        );
+                                    })}
                                 </ul>
                             </ModalBody>
                             <ModalFooter>
@@ -147,6 +149,6 @@ export default function Pricecard(props: PricecardProps) {
                     )}
                 </ModalContent>
             </Modal>
-        </div>
+        </motion.div>
     );
 }
