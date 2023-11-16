@@ -11,10 +11,10 @@ export default function PricingPage() {
             <motion.h1
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "spring", delay: 0.3, duration: 0.4 }}
+                transition={{ type: "spring", delay: 0, duration: 0.4 }}
                 className={
                     barlow.className +
-                    " text-6xl lg:text-9xl font-bold bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent"
+                    " text-6xl lg:text-9xl font-bold bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-[0_0px_4px_rgba(0,0,0,0.15)] dark:drop-shadow-[0_0px_7px_rgba(255,165,0,0.75)]"
                 }
             >
                 Precios
@@ -22,7 +22,7 @@ export default function PricingPage() {
             <motion.p
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "spring", delay: 0.6, duration: 0.4 }}
+                transition={{ type: "spring", delay: 0.3, duration: 0.4 }}
                 className="text-center text-lg mb-10"
             >
                 Los precios son calculados a partir de la cantidad de horas
@@ -31,7 +31,7 @@ export default function PricingPage() {
             <motion.section
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "spring", delay: 0.9, duration: 0.4 }}
+                transition={{ type: "spring", delay: 0.6, duration: 0.4 }}
                 className="flex flex-wrap justify-between gap-2 items-center h-auto w-full max-w-5xl px-2 md:px-0"
             >
                 {tarjetasPrecios.map((tarjeta, index) => {
@@ -49,7 +49,7 @@ export default function PricingPage() {
             <motion.section
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "spring", delay: 1.2, duration: 0.4 }}
+                transition={{ type: "spring", delay: 0.9, duration: 0.4 }}
                 className="flex justify-center items-center h-auto w-full max-w-5xl mt-16 md:mt-20 px-2 md:px-0"
             >
                 <Tableprice />

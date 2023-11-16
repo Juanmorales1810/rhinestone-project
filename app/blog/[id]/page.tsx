@@ -18,7 +18,7 @@ export default function BlogPage({ params }: { params: BlogParams }) {
     const foundBlog = blogPosts.find((blog) => blog.slug === params.id);
     if (!foundBlog) {
         return (
-            <div className="flex flex-col justify-center items-center w-full">
+            <section className="flex flex-col justify-center items-center w-full">
                 <h2
                     className={
                         barlow.className +
@@ -30,7 +30,7 @@ export default function BlogPage({ params }: { params: BlogParams }) {
                 <h2 className=" pt-8 text-3xl font-bold text-center text-black dark:text-white">
                     Entrada de blog no encontrada.
                 </h2>
-            </div>
+            </section>
         );
     }
     const { titulo, description, image, lorem } = foundBlog;

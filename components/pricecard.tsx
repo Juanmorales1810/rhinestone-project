@@ -67,7 +67,7 @@ export default function Pricecard(props: PricecardProps) {
                 <p
                     className={
                         barlow.className +
-                        "  pb-2 text-6xl md:text-8xl font-bold bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent"
+                        "  pb-2 text-6xl md:text-8xl font-bold bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent dark:drop-shadow-[0_0px_7px_rgba(255,165,0,0.75)]"
                     }
                 >
                     {"$" + precio}
