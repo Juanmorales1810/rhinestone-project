@@ -83,7 +83,7 @@ export default function Home() {
                             loop={true}
                             poster=""
                         >
-                            <source src="/videos/videocard2.mp4" />
+                            <source src="/videos/videocard2.webm" />
                         </video>
                     </div>
                     <div className="flex flex-col w-2/3 h-full p-4 justify-center items-star">
@@ -115,19 +115,19 @@ export default function Home() {
                 <div className="flex flex-wrap gap-5 items-center justify-center sm:justify-between h-auto w-3/4 max-w-4xl">
                     <Videocar
                         srcimg="/img/runnig.jpg"
-                        srcvid="/videos/videocard.mp4"
+                        srcvid="/videos/videocard.webm"
                         title="VIDEO CARD"
                         subtitle="Subtitle"
                     />
                     <Videocar
                         srcimg="/img/landing/fondonoise.webp"
-                        srcvid="/videos/videocard2.mp4"
+                        srcvid="/videos/videocard2.webm"
                         title="VIDEO CARD"
                         subtitle="Subtitle"
                     />
                     <Videocar
                         srcimg="/img/landing/fondonoise2.jpg"
-                        srcvid="/videos/videocard3.mp4"
+                        srcvid="/videos/videocard3.webm"
                         title="VIDEO CARD"
                         subtitle="Subtitle"
                     />
