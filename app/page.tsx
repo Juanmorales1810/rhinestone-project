@@ -40,7 +40,7 @@ export default function Home() {
                     muted={true}
                     preload="auto"
                     loop={true}
-                    poster=""
+                    poster="/img/landing/videoplayback.jpg"
                 >
                     <source src="/videos/videoplayback.webm" />
                 </video>

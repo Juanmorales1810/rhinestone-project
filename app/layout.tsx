@@ -58,7 +58,7 @@ export default function RootLayout({
                                         " text-xl font-normal"
                                     }
                                 >
-                                    © Echo con amor por
+                                    © Hecho con amor por
                                 </p>
                                 <p
                                     className={
