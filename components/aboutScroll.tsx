@@ -1,7 +1,9 @@
 "use client";
 
 import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { Image } from "@nextui-org/image";
+import { barlow } from "@/config/fonts";
 
 export default function AboutScroll() {
     const control1 = useAnimation();
@@ -20,6 +22,7 @@ export default function AboutScroll() {
         },
         left: {
             x: "100%",
+
             transition: {
                 duration: 0.3,
                 type: "spring",
@@ -27,14 +30,23 @@ export default function AboutScroll() {
         },
         right: {
             x: 0,
+
             transition: {
                 duration: 0.3,
                 type: "spring",
             },
         },
-        offscreenleft: {
-            x: "5%",
-            y: "5%",
+    };
+    const variant = {
+        initial: {
+            opacity: 0,
+            scale: 0,
+            transition: {
+                duration: 0.3,
+                type: "spring",
+            },
+        },
+        offscreen: {
             opacity: 0,
             scale: 0,
             transition: {
@@ -43,24 +55,12 @@ export default function AboutScroll() {
             },
         },
         onscreen: {
-            x: 0,
-            y: 0,
             opacity: 1,
-            scale: 1.1,
+            scale: 1,
 
             transition: {
                 type: "spring",
                 duration: 0.3,
-            },
-        },
-        offscreenright: {
-            x: "-5%",
-            y: "5%",
-            opacity: 0,
-            scale: 0,
-            transition: {
-                duration: 0.3,
-                type: "spring",
             },
         },
     };
@@ -68,19 +68,19 @@ export default function AboutScroll() {
     useEffect(() => {
         const scrollHandler = () => {
             const scrollY = window.scrollY;
-            // console.log(scrollY);
-            if (scrollY > 1300) {
+
+            if (scrollY > 1500) {
                 control1.start("right");
             }
 
-            if (scrollY > 1900) {
+            if (scrollY > 2200) {
                 control1.start("left");
             }
-            if (scrollY > 2700) {
+            if (scrollY > 3100) {
                 control1.start("right");
             }
 
-            if (scrollY <= 1000) {
+            if (scrollY <= 1400) {
                 control1.start("initial");
             }
         };
@@ -95,15 +95,11 @@ export default function AboutScroll() {
         const scrollHandler = () => {
             const scrollY = window.scrollY;
             console.log(scrollY);
-            if (scrollY < 1000) {
-                control2.start("offscreenleft");
+            if (scrollY < 1400 || scrollY > 2200) {
+                control2.start("offscreen");
             }
-            if (scrollY > 1300) {
+            if (scrollY > 1300 && scrollY < 2200) {
                 control2.start("onscreen");
-            }
-
-            if (scrollY > 1900) {
-                control2.start("offscreenleft");
             }
         };
 
@@ -116,16 +112,12 @@ export default function AboutScroll() {
     useEffect(() => {
         const scrollHandler = () => {
             const scrollY = window.scrollY;
-            // console.log(scrollY);
-            if (scrollY < 1900) {
-                control3.start("offscreenleft");
-            }
-            if (scrollY > 1900) {
-                control3.start("onscreen");
-            }
 
-            if (scrollY > 2700) {
-                control3.start("offscreenleft");
+            if (scrollY < 2200 || scrollY > 3100) {
+                control3.start("offscreen");
+            }
+            if (scrollY > 2200 && scrollY < 3100) {
+                control3.start("onscreen");
             }
         };
 
@@ -138,11 +130,11 @@ export default function AboutScroll() {
     useEffect(() => {
         const scrollHandler = () => {
             const scrollY = window.scrollY;
-            // console.log(scrollY);
-            if (scrollY < 2700) {
-                control4.start("offscreenleft");
+
+            if (scrollY < 3100) {
+                control4.start("offscreen");
             }
-            if (scrollY > 2700) {
+            if (scrollY > 3100) {
                 control4.start("onscreen");
             }
         };
@@ -156,12 +148,12 @@ export default function AboutScroll() {
     useEffect(() => {
         const scrollHandler = () => {
             const scrollY = window.scrollY;
-            // console.log(scrollY);
-            if (scrollY < 1000) {
+
+            if (scrollY < 1400) {
                 control5.start("onscreen");
             }
             if (scrollY > 1300) {
-                control5.start("offscreenleft");
+                control5.start("offscreen");
             }
         };
 
@@ -173,53 +165,225 @@ export default function AboutScroll() {
     }, [control5]);
 
     return (
-        <section className="w-full">
+        <section className="my-40 w-full max-w-6xl">
             <motion.div
-                className="sticky top-16 w-1/2 h-full min-h-[calc(100vh-116px)] bg-slate-800/30 rounded-lg z-0"
+                className="sticky flex justify-center items-center top-16 w-1/2 h-full min-h-[calc(100vh-116px)] z-20"
                 variants={variants}
                 initial="initial"
                 animate={control1}
             >
                 <motion.div
-                    variants={variants}
+                    variants={variant}
+                    initial="offscreen"
                     animate={control5}
-                    className="absolute top-[calc(50%-144px)] left-[calc(50%-160px)] translate-x-1/2 translate-y-1/2 flex flex-col justify-center items-center h-72 w-[320px] bg-slate-100 rounded-lg shadow-2xl"
+                    className="absolute top-[calc(20%-144px)] left-[calc(50%-256px)] translate-x-1/2 translate-y-1/2 flex flex-col justify-center items-center h-72 w-[512px] z-40"
                 >
-                    <h2 className="text-slate-700">Hola mundo!</h2>
+                    <h2
+                        className={
+                            barlow.className +
+                            " p-2 text-6xl font-bold bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent dark:drop-shadow-[0_0px_7px_rgba(255,165,0,0.75)]"
+                        }
+                    >
+                        ¿COMO TRABAJAMOS?
+                    </h2>
+                    <p
+                        className={
+                            barlow.className +
+                            " mt-4 text-xl font-normal lg:text-2xl text-white drop-shadow-[0_0px_7px_rgba(0,0,0,0.95)] dark:drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)]"
+                        }
+                    >
+                        Integrando innovadores videos de entrenamiento con
+                        artículos de alto rendimiento, guiamos a hombres y
+                        mujeres hacia el éxito en maratones. Nuestra experiencia
+                        respalda una experiencia realista y transformadora.
+                    </p>
+                    <figure className="absolute top-[90px] left-[580px] w-20 h-20 z-10">
+                        <Image
+                            isBlurred
+                            isZoomed
+                            width={80}
+                            alt="NextUI hero Image"
+                            src="img/about/photoshop.svg"
+                            className=""
+                        />
+                    </figure>
+                    <figure className="absolute top-[270px] left-[440px] w-20 h-20 z-10">
+                        <Image
+                            isBlurred
+                            width={80}
+                            alt="NextUI hero Image"
+                            src="img/about/mp4.svg"
+                            className=""
+                        />
+                    </figure>
+                    <figure className="absolute top-[320px] left-[240px] w-20 h-20 z-10">
+                        <Image
+                            isBlurred
+                            isZoomed
+                            width={80}
+                            alt="NextUI hero Image"
+                            src="img/about/premier.svg"
+                            className=""
+                        />
+                    </figure>
+                    <figure className="absolute top-[270px] left-[40px] w-20 h-20 z-10">
+                        <Image
+                            isBlurred
+                            width={80}
+                            alt="NextUI hero Image"
+                            src="img/about/avi.svg"
+                            className=""
+                        />
+                    </figure>
+                    <figure className="absolute top-[90px] -left-[140px] w-20 h-20 z-10">
+                        <Image
+                            isBlurred
+                            isZoomed
+                            width={80}
+                            alt="NextUI hero Image"
+                            src="img/about/after.svg"
+                            className=""
+                        />
+                    </figure>
                 </motion.div>
                 <motion.div
-                    variants={variants}
+                    variants={variant}
+                    initial="initial"
                     animate={control2}
-                    className="absolute top-[calc(50%-144px)] left-[calc(50%-160px)] translate-x-1/2 translate-y-1/2 flex flex-col justify-center items-center h-72 w-[320px] bg-slate-200 rounded-lg shadow-2xl"
+                    className="absolute top-[calc(50%-144px)] left-[calc(50%-210px)] translate-x-1/2 translate-y-1/2 flex flex-col justify-center items-center h-72 w-[420px] z-10"
                 >
-                    <h2 className="text-slate-700">Hola mundo!</h2>
+                    <Image
+                        isBlurred
+                        width={420}
+                        alt="NextUI hero Image"
+                        src="img/about/reunion.jpg"
+                        className=""
+                    />
                 </motion.div>
                 <motion.div
-                    variants={variants}
+                    variants={variant}
+                    initial="offscreen"
                     animate={control3}
-                    className="absolute top-[calc(50%-144px)] left-[calc(50%-160px)] translate-x-1/2 translate-y-1/2 flex flex-col justify-center items-center h-72 w-[320px] bg-slate-300 rounded-lg shadow-2xl"
+                    className="absolute top-[calc(50%-144px)] left-[calc(50%-210px)] translate-x-1/2 translate-y-1/2 flex flex-col justify-center items-center h-72 w-[420px] z-10"
                 >
-                    <h2 className="text-slate-700">Hola mundo!</h2>
+                    <Image
+                        isBlurred
+                        width={420}
+                        alt="NextUI hero Image"
+                        src="img/about/realidad.jpg"
+                        className=""
+                    />
                 </motion.div>
                 <motion.div
-                    variants={variants}
+                    variants={variant}
+                    initial="offscreen"
                     animate={control4}
-                    className="absolute top-[calc(50%-144px)] left-[calc(50%-160px)] translate-x-1/2 translate-y-1/2 flex flex-col justify-center items-center h-72 w-[320px] bg-slate-400 rounded-lg shadow-2xl"
+                    className="absolute top-[calc(50%-144px)] left-[calc(50%-210px)] translate-x-1/2 translate-y-1/2 flex flex-col justify-center items-center h-72 w-[420px] z-10"
                 >
-                    <h2 className="text-slate-700">Hola mundo!</h2>
+                    <Image
+                        isBlurred
+                        width={420}
+                        alt="NextUI hero Image"
+                        src="img/about/edicion.jpg"
+                        className=""
+                    />
                 </motion.div>
             </motion.div>
-            <div className="flex w-full h-full min-h-[calc(100vh-116px)] z-10">
-                <div className="flex justify-center items-center w-1/2 rounded-lg"></div>
-                <div className="w-1/2 bg-slate-800 rounded-lg"></div>
+            <div className="relative flex w-full h-full min-h-[calc(100vh-116px)] z-10">
+                <div className="flex justify-center items-center w-1/2">
+                    <Image
+                        isBlurred
+                        width={512}
+                        alt="NextUI hero Image"
+                        src="img/about/back1.svg"
+                        className=""
+                    />
+                </div>
+                <div className="flex flex-col justify-center items-start text-left p-4 w-1/2 bg-black/30 backdrop-blur-xl rounded-r-lg">
+                    <h3
+                        className={
+                            barlow.className +
+                            " p-2 text-6xl font-bold bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent dark:drop-shadow-[0_0px_7px_rgba(255,165,0,0.75)]"
+                        }
+                    >
+                        Exploración de Metas y Estilo Personalizado
+                    </h3>
+                    <p
+                        className={
+                            barlow.className +
+                            " mt-4 text-xl font-normal lg:text-2xl text-white drop-shadow-[0_0px_7px_rgba(0,0,0,0.95)] dark:drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)]"
+                        }
+                    >
+                        Comenzamos evaluando tus objetivos y preferencias.
+                        Juntos, diseñamos un plan personalizado que refleje
+                        nuestra experiencia comprobada en videos de
+                        entrenamiento de última generación.
+                    </p>
+                </div>
             </div>
-            <div className="flex w-full h-full min-h-[calc(100vh-116px)]">
-                <div className="w-1/2 bg-slate-800 rounded-lg"></div>
-                <div className="flex justify-center items-center w-1/2 rounded-lg z-10"></div>
+            <div className="relative flex w-full h-full min-h-[calc(100vh-116px)] z-10">
+                <div className="flex flex-col justify-center items-center text-right p-4 w-1/2 bg-black/30 backdrop-blur-xl rounded-lg">
+                    <h3
+                        className={
+                            barlow.className +
+                            " p-2 text-6xl font-bold bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent dark:drop-shadow-[0_0px_7px_rgba(255,165,0,0.75)]"
+                        }
+                    >
+                        Inmersión en el Éxito Pasado y Actual
+                    </h3>
+                    <p
+                        className={
+                            barlow.className +
+                            " mt-4 text-xl font-normal lg:text-2xl text-white drop-shadow-[0_0px_7px_rgba(0,0,0,0.95)] dark:drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)]"
+                        }
+                    >
+                        Exploramos nuestra rica trayectoria de éxitos,
+                        inspirándote con historias reales. Te sumergirás en
+                        sesiones de entrenamiento que capturan la esencia de la
+                        fama, equilibrando la ambición con la realidad.
+                    </p>
+                </div>
+                <div className="flex justify-center items-center w-1/2">
+                    <Image
+                        isBlurred
+                        width={512}
+                        alt="NextUI hero Image"
+                        src="img/about/back2.svg"
+                        className=""
+                    />
+                </div>
             </div>
-            <div className="flex w-full h-full min-h-[calc(100vh-116px)]">
-                <div className="flex justify-center items-center w-1/2 rounded-lg z-10"></div>
-                <div className="w-1/2 bg-slate-800 rounded-lg"></div>
+            <div className="relative flex w-full h-full min-h-[calc(100vh-116px)] z-10">
+                <div className="flex justify-center items-center w-1/2">
+                    <Image
+                        isBlurred
+                        width={512}
+                        alt="NextUI hero Image"
+                        src="img/about/back3.svg"
+                        className=""
+                    />
+                </div>
+                <div className="flex flex-col justify-center items-start text-left p-4 w-1/2 bg-black/30 backdrop-blur-xl rounded-lg">
+                    <h3
+                        className={
+                            barlow.className +
+                            " p-2 text-6xl font-bold bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent dark:drop-shadow-[0_0px_7px_rgba(255,165,0,0.75)]"
+                        }
+                    >
+                        Entrenamiento Estelar y Conexión Personalizada
+                    </h3>
+                    <p
+                        className={
+                            barlow.className +
+                            " mt-4 text-xl font-normal lg:text-2xl text-white drop-shadow-[0_0px_7px_rgba(0,0,0,0.95)] dark:drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)]"
+                        }
+                    >
+                        Experimenta la grandeza a través de nuestros videos
+                        exclusivos. Mantenemos una conexión cercana, brindando
+                        apoyo realista y ajustes personalizados. Así, te guiamos
+                        hacia el estrellato en tus propias metas de maratón.
+                    </p>
+                </div>
             </div>
         </section>
     );
