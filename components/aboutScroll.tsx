@@ -94,7 +94,6 @@ export default function AboutScroll() {
     useEffect(() => {
         const scrollHandler = () => {
             const scrollY = window.scrollY;
-            console.log(scrollY);
             if (scrollY < 1400 || scrollY > 2200) {
                 control2.start("offscreen");
             }
@@ -259,6 +258,24 @@ export default function AboutScroll() {
                         src="img/about/reunion.jpg"
                         className=""
                     />
+                    <figure className="absolute -top-[80px] -left-[140px] w-40 h-40 z-10">
+                        <Image
+                            isBlurred
+                            width={160}
+                            alt="NextUI hero Image"
+                            src="img/about/grafico1.png"
+                            className=""
+                        />
+                    </figure>
+                    <figure className="absolute top-[240px] left-[300px] w-48 h-48 z-10">
+                        <Image
+                            isBlurred
+                            width={192}
+                            alt="NextUI hero Image"
+                            src="img/about/grafico2.png"
+                            className=""
+                        />
+                    </figure>
                 </motion.div>
                 <motion.div
                     variants={variant}
@@ -273,6 +290,24 @@ export default function AboutScroll() {
                         src="img/about/realidad.jpg"
                         className=""
                     />
+                    <figure className="absolute -top-[80px] left-[300px] w-48 h-48 z-10">
+                        <Image
+                            isBlurred
+                            width={192}
+                            alt="NextUI hero Image"
+                            src="img/about/thumb-up.png"
+                            className=""
+                        />
+                    </figure>
+                    <figure className="absolute top-[200px] -left-[100px] w-40 h-40 z-10">
+                        <Image
+                            isBlurred
+                            width={160}
+                            alt="NextUI hero Image"
+                            src="img/about/camera.png"
+                            className=""
+                        />
+                    </figure>
                 </motion.div>
                 <motion.div
                     variants={variant}
@@ -287,6 +322,33 @@ export default function AboutScroll() {
                         src="img/about/edicion.jpg"
                         className=""
                     />
+                    <figure className="absolute top-[200px] left-[300px] w-48 h-48 z-10">
+                        <Image
+                            isBlurred
+                            width={192}
+                            alt="NextUI hero Image"
+                            src="img/about/next.png"
+                            className=""
+                        />
+                    </figure>
+                    <figure className="absolute top-[190px] left-[120px] w-40 h-40 z-10">
+                        <Image
+                            isBlurred
+                            width={160}
+                            alt="NextUI hero Image"
+                            src="img/about/play.png"
+                            className=""
+                        />
+                    </figure>
+                    <figure className="absolute top-[180px] -left-[90px] w-40 h-40 z-10">
+                        <Image
+                            isBlurred
+                            width={160}
+                            alt="NextUI hero Image"
+                            src="img/about/back.png"
+                            className=""
+                        />
+                    </figure>
                 </motion.div>
             </motion.div>
             <div className="relative flex w-full h-full min-h-[calc(100vh-116px)] z-10">
