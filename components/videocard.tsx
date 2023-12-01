@@ -9,35 +9,30 @@ interface VideoCardProps {
     subtitle: string;
 }
 
-export default function Videocar(props: VideoCardProps) {
-    const { srcimg, srcvid, subtitle, title } = props;
+export default function Videocar({
+    srcimg,
+    srcvid,
+    subtitle,
+    title,
+}: VideoCardProps) {
     const [isMouseOver, setIsMouseOver] = useState(false);
 
-    const video1Ref = useRef<HTMLVideoElement | null>(null);
-    const video2Ref = useRef<HTMLVideoElement | null>(null);
+    const videoRef = useRef<HTMLVideoElement | null>(null);
 
     // Función para manejar el evento cuando el mouse entra en el componente
     const handleMouseEnter = () => {
         setIsMouseOver(true);
-        if (video1Ref.current) {
-            video1Ref.current.play();
-        }
-        if (video2Ref.current) {
-            video2Ref.current.play();
+        if (videoRef.current) {
+            videoRef.current.play();
         }
     };
 
-    // Función para manejar el evento cuando el mouse sale del componente
     const handleMouseLeave = () => {
-        if (video1Ref.current) {
-            video1Ref.current.pause();
-            video1Ref.current.currentTime = 0; // Reiniciar el video al inicio
+        if (videoRef.current) {
+            videoRef.current.pause();
+            videoRef.current.currentTime = 0;
         }
-        if (video2Ref.current) {
-            video2Ref.current.pause();
-            video2Ref.current.currentTime = 0; // Reiniciar el video al inicio
-        }
-        setTimeout(() => setIsMouseOver(false), 0); // Establece una demora para cambiar la clase
+        setIsMouseOver(false);
     };
     return (
         <div
@@ -82,19 +77,19 @@ export default function Videocar(props: VideoCardProps) {
             </div>
             <video
                 controls={false}
-                ref={video1Ref}
+                ref={videoRef}
                 className="absolute max-w-none max-h-none w-[calc(100%-2px)] h-[calc(100%-2px)] right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 z-10 rounded-xl object-cover"
                 autoPlay={true}
                 muted={true}
                 preload="auto"
                 loop={true}
-                poster=""
-            >
-                <source src={srcvid} />
-            </video>
+                poster={srcimg}
+                src={srcvid}
+            />
+
             <video
                 controls={false}
-                ref={video2Ref}
+                ref={videoRef}
                 className={`absolute hidden md:block saturate-150 max-w-none max-h-none w-[calc(100%-2px)] h-[calc(100%-2px)] right-1/2 bottom-1/2 translate-x-1/2 translate-y-1/2 rounded-2xl z-0 object-cover ${
                     isMouseOver
                         ? "blur-2xl ease-out duration-1000"
@@ -104,10 +99,9 @@ export default function Videocar(props: VideoCardProps) {
                 muted={true}
                 preload="auto"
                 loop={true}
-                poster=""
-            >
-                <source src={srcvid} />
-            </video>
+                poster={srcimg}
+                src={srcvid}
+            />
         </div>
     );
 }

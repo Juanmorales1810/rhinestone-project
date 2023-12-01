@@ -17,6 +17,7 @@ import {
 import { barlow } from "@/config/fonts";
 import Link from "next/link";
 import { Variants, motion } from "framer-motion";
+import Contact from "@/components/contact";
 
 export default function Home() {
     const Variants: Variants = {
@@ -41,9 +42,9 @@ export default function Home() {
                     preload="auto"
                     loop={true}
                     poster="/img/landing/videoplayback.jpg"
-                >
-                    <source src="/videos/videoplayback.webm" />
-                </video>
+                    src="/videos/videoplayback.webm"
+                />
+
                 <div className="absolute w-full max-w-sm h-44 top-[calc(30%-88px)] left-[calc(50%-192px)] lg:w-full lg:max-w-2xl lg:h-96 lg:top-[calc(30%-160px)] lg:left-[calc(50%-336px)]">
                     <h1
                         className={
@@ -82,9 +83,8 @@ export default function Home() {
                             preload="auto"
                             loop={true}
                             poster=""
-                        >
-                            <source src="/videos/videocard2.webm" />
-                        </video>
+                            src="/videos/videocard2.webm"
+                        />
                     </div>
                     <div className="flex flex-col w-2/3 h-full p-4 justify-center items-star">
                         <h2
@@ -133,123 +133,7 @@ export default function Home() {
                     />
                 </div>
             </motion.section>
-            <motion.section
-                variants={Variants}
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true, amount: 0.7 }}
-                className="flex flex-col justify-center items-center h-auto lg:h-[640px] w-full"
-            >
-                <h2
-                    className={
-                        barlow.className +
-                        " pb-4 text-xl lg:text-4xl font-bold bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent"
-                    }
-                >
-                    Contacto
-                </h2>
-                <div className="flex flex-col items-center justify-around h-auto w-11/12 md:flex-row lg:h-auto lg:w-3/4 max-w-4xl rounded-xl bg-yellow-100 dark:dark:bg-yellow-400/10 shadow-xl">
-                    <div className="flex flex-col p-3 w-full h-full md:w-1/2">
-                        <h3
-                            className={
-                                barlow.className +
-                                " pb-2 text-xl lg:text-2xl font-bold bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent"
-                            }
-                        >
-                            Nuestros contactos
-                        </h3>
-                        <ul>
-                            <li>
-                                <Link href="" className="flex items-center m-3">
-                                    <PhoneLogo className="pt-[6px]" />
-                                    +54 11 22 33 44
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="" className="flex items-center m-3">
-                                    <MailLogo className="pt-[6px]" />
-                                    Email: XXXXXXXXXXXXXXXXXXX
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="" className="flex items-center m-3">
-                                    <MapLogo className="pt-[6px]" />
-                                    Dirección: Calle 123, Cordoba, Argentina
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="" className="flex items-center m-3">
-                                    <CuitLogo className="pt-[6px]" />
-                                    CUIT: 20-12345678-9
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="" className="flex items-center m-3">
-                                    <CalendarLogo className="pt-[6px]" />
-                                    Calendario
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="" className="flex items-center m-3">
-                                    <InstaLogo className="pt-[6px]" />
-                                    @MindBench
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="" className="flex items-center m-3">
-                                    <WhatsappLogo className="pt-[6px]" />
-                                    WhatsApp
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="flex flex-col p-3 w-full h-full md:w-1/2">
-                        <h3
-                            className={
-                                barlow.className +
-                                " pb-2 text-xl lg:text-2xl font-bold bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent"
-                            }
-                        >
-                            Envié sus datos para comunicarnos
-                        </h3>
-                        <form action="" className="flex flex-col">
-                            <Input
-                                type="email"
-                                label="Email"
-                                startContent={<MailLogo className="pt-[6px]" />}
-                                className="py-2"
-                            />
-                            <Input
-                                type="text"
-                                label="Nombre"
-                                startContent={<CuitLogo className="pt-[6px]" />}
-                                className="py-2"
-                            />
-                            <Input
-                                type="text"
-                                label="Telefono"
-                                startContent={
-                                    <PhoneLogo className="pt-[6px]" />
-                                }
-                                className="py-2"
-                            />
-                            <Textarea
-                                label="Description"
-                                labelPlacement="inside"
-                                placeholder="Enter your description"
-                                className="max-w-lg py-2"
-                            />
-                            <Button
-                                color="warning"
-                                variant="shadow"
-                                className="py-2"
-                            >
-                                Enviar
-                            </Button>
-                        </form>
-                    </div>
-                </div>
-            </motion.section>
+            <Contact />
         </section>
     );
 }

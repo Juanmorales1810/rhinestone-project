@@ -1,9 +1,86 @@
 "use client";
 
-import { motion, useAnimation } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { motion, useAnimation, Variants } from "framer-motion";
+import { useEffect } from "react";
 import { Image } from "@nextui-org/image";
 import { barlow } from "@/config/fonts";
+
+interface ScrollAnimationProps {
+    control: any;
+    start: number;
+    end: number;
+}
+
+const useScrollAnimation = ({ control, start, end }: ScrollAnimationProps) => {
+    useEffect(() => {
+        const scrollHandler = () => {
+            const scrollY = window.scrollY;
+
+            if (scrollY >= start && scrollY <= end) {
+                control.start("onscreen");
+            } else {
+                control.start("offscreen");
+            }
+        };
+
+        window.addEventListener("scroll", scrollHandler);
+
+        return () => {
+            window.removeEventListener("scroll", scrollHandler);
+        };
+    }, [control, start, end]);
+};
+
+const variants: Variants = {
+    initial: {
+        x: "50%",
+        transition: {
+            duration: 0.3,
+            type: "spring",
+        },
+    },
+    left: {
+        x: "100%",
+        transition: {
+            duration: 0.3,
+            type: "spring",
+        },
+    },
+    right: {
+        x: 0,
+        transition: {
+            duration: 0.3,
+            type: "spring",
+        },
+    },
+};
+
+const variant: Variants = {
+    initial: {
+        opacity: 0,
+        scale: 0,
+        transition: {
+            duration: 0.3,
+            type: "spring",
+        },
+    },
+    offscreen: {
+        opacity: 0,
+        scale: 0,
+        transition: {
+            duration: 0.3,
+            type: "spring",
+        },
+    },
+    onscreen: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            type: "spring",
+            duration: 0.3,
+        },
+    },
+};
 
 export default function AboutScroll() {
     const control1 = useAnimation();
@@ -12,59 +89,10 @@ export default function AboutScroll() {
     const control4 = useAnimation();
     const control5 = useAnimation();
 
-    const variants = {
-        initial: {
-            x: "50%",
-            transition: {
-                duration: 0.3,
-                type: "spring",
-            },
-        },
-        left: {
-            x: "100%",
-
-            transition: {
-                duration: 0.3,
-                type: "spring",
-            },
-        },
-        right: {
-            x: 0,
-
-            transition: {
-                duration: 0.3,
-                type: "spring",
-            },
-        },
-    };
-    const variant = {
-        initial: {
-            opacity: 0,
-            scale: 0,
-            transition: {
-                duration: 0.3,
-                type: "spring",
-            },
-        },
-        offscreen: {
-            opacity: 0,
-            scale: 0,
-            transition: {
-                duration: 0.3,
-                type: "spring",
-            },
-        },
-        onscreen: {
-            opacity: 1,
-            scale: 1,
-
-            transition: {
-                type: "spring",
-                duration: 0.3,
-            },
-        },
-    };
-
+    useScrollAnimation({ control: control2, start: 1300, end: 2200 });
+    useScrollAnimation({ control: control3, start: 2200, end: 3100 });
+    useScrollAnimation({ control: control4, start: 3100, end: Infinity });
+    useScrollAnimation({ control: control5, start: 0, end: 1400 });
     useEffect(() => {
         const scrollHandler = () => {
             const scrollY = window.scrollY;
@@ -91,77 +119,6 @@ export default function AboutScroll() {
             window.removeEventListener("scroll", scrollHandler);
         };
     }, [control1]);
-    useEffect(() => {
-        const scrollHandler = () => {
-            const scrollY = window.scrollY;
-            if (scrollY < 1400 || scrollY > 2200) {
-                control2.start("offscreen");
-            }
-            if (scrollY > 1300 && scrollY < 2200) {
-                control2.start("onscreen");
-            }
-        };
-
-        window.addEventListener("scroll", scrollHandler);
-
-        return () => {
-            window.removeEventListener("scroll", scrollHandler);
-        };
-    }, [control2]);
-    useEffect(() => {
-        const scrollHandler = () => {
-            const scrollY = window.scrollY;
-
-            if (scrollY < 2200 || scrollY > 3100) {
-                control3.start("offscreen");
-            }
-            if (scrollY > 2200 && scrollY < 3100) {
-                control3.start("onscreen");
-            }
-        };
-
-        window.addEventListener("scroll", scrollHandler);
-
-        return () => {
-            window.removeEventListener("scroll", scrollHandler);
-        };
-    }, [control3]);
-    useEffect(() => {
-        const scrollHandler = () => {
-            const scrollY = window.scrollY;
-
-            if (scrollY < 3100) {
-                control4.start("offscreen");
-            }
-            if (scrollY > 3100) {
-                control4.start("onscreen");
-            }
-        };
-
-        window.addEventListener("scroll", scrollHandler);
-
-        return () => {
-            window.removeEventListener("scroll", scrollHandler);
-        };
-    }, [control4]);
-    useEffect(() => {
-        const scrollHandler = () => {
-            const scrollY = window.scrollY;
-
-            if (scrollY < 1400) {
-                control5.start("onscreen");
-            }
-            if (scrollY > 1300) {
-                control5.start("offscreen");
-            }
-        };
-
-        window.addEventListener("scroll", scrollHandler);
-
-        return () => {
-            window.removeEventListener("scroll", scrollHandler);
-        };
-    }, [control5]);
 
     return (
         <section className="my-40 w-full max-w-6xl">
@@ -175,7 +132,7 @@ export default function AboutScroll() {
                     variants={variant}
                     initial="offscreen"
                     animate={control5}
-                    className="absolute top-[calc(20%-144px)] left-[calc(50%-256px)] translate-x-1/2 translate-y-1/2 flex flex-col justify-center items-center h-72 w-[512px] z-40"
+                    className="absolute top-[calc(20%-144px)] left-[calc(50%-256px)] flex flex-col justify-center items-center h-72 w-[512px] z-40"
                 >
                     <h2
                         className={
@@ -249,31 +206,30 @@ export default function AboutScroll() {
                     variants={variant}
                     initial="initial"
                     animate={control2}
-                    className="absolute top-[calc(50%-144px)] left-[calc(50%-210px)] translate-x-1/2 translate-y-1/2 flex flex-col justify-center items-center h-72 w-[420px] z-10"
+                    className="absolute top-[calc(50%-144px)] left-[calc(50%-210px)] flex flex-col justify-center items-center h-72 w-[420px]"
                 >
-                    <Image
-                        isBlurred
-                        width={420}
-                        alt="NextUI hero Image"
-                        src="img/about/reunion.jpg"
-                        className=""
-                    />
-                    <figure className="absolute -top-[80px] -left-[140px] w-40 h-40 z-10">
+                    <figure>
+                        <Image
+                            isBlurred
+                            width={420}
+                            alt="NextUI hero Image"
+                            src="img/about/reunion.jpg"
+                        />
+                    </figure>
+                    <figure className="absolute -top-[80px] -left-[140px] w-40 h-40">
                         <Image
                             isBlurred
                             width={160}
                             alt="NextUI hero Image"
-                            src="img/about/grafico1.png"
-                            className=""
+                            src="img/about/grafico1.webp"
                         />
                     </figure>
-                    <figure className="absolute top-[240px] left-[300px] w-48 h-48 z-10">
+                    <figure className="absolute top-[240px] left-[300px] w-48 h-48">
                         <Image
                             isBlurred
                             width={192}
                             alt="NextUI hero Image"
-                            src="img/about/grafico2.png"
-                            className=""
+                            src="img/about/grafico2.webp"
                         />
                     </figure>
                 </motion.div>
@@ -281,31 +237,30 @@ export default function AboutScroll() {
                     variants={variant}
                     initial="offscreen"
                     animate={control3}
-                    className="absolute top-[calc(50%-144px)] left-[calc(50%-210px)] translate-x-1/2 translate-y-1/2 flex flex-col justify-center items-center h-72 w-[420px] z-10"
+                    className="absolute top-[calc(50%-144px)] left-[calc(50%-210px)] flex flex-col justify-center items-center h-72 w-[420px]"
                 >
-                    <Image
-                        isBlurred
-                        width={420}
-                        alt="NextUI hero Image"
-                        src="img/about/realidad.jpg"
-                        className=""
-                    />
-                    <figure className="absolute -top-[80px] left-[300px] w-48 h-48 z-10">
+                    <figure>
+                        <Image
+                            isBlurred
+                            width={420}
+                            alt="NextUI hero Image"
+                            src="img/about/realidad.jpg"
+                        />
+                    </figure>
+                    <figure className="absolute -top-[80px] left-[300px] w-48 h-48">
                         <Image
                             isBlurred
                             width={192}
                             alt="NextUI hero Image"
-                            src="img/about/thumb-up.png"
-                            className=""
+                            src="img/about/thumb-up.webp"
                         />
                     </figure>
-                    <figure className="absolute top-[200px] -left-[100px] w-40 h-40 z-10">
+                    <figure className="absolute top-[200px] -left-[100px] w-40 h-40">
                         <Image
                             isBlurred
                             width={160}
                             alt="NextUI hero Image"
-                            src="img/about/camera.png"
-                            className=""
+                            src="img/about/camera.webp"
                         />
                     </figure>
                 </motion.div>
@@ -313,55 +268,52 @@ export default function AboutScroll() {
                     variants={variant}
                     initial="offscreen"
                     animate={control4}
-                    className="absolute top-[calc(50%-144px)] left-[calc(50%-210px)] translate-x-1/2 translate-y-1/2 flex flex-col justify-center items-center h-72 w-[420px] z-10"
+                    className="absolute top-[calc(50%-144px)] left-[calc(50%-210px)] flex flex-col justify-center items-center h-72 w-[420px]"
                 >
-                    <Image
-                        isBlurred
-                        width={420}
-                        alt="NextUI hero Image"
-                        src="img/about/edicion.jpg"
-                        className=""
-                    />
-                    <figure className="absolute top-[200px] left-[300px] w-48 h-48 z-10">
+                    <figure>
+                        <Image
+                            isBlurred
+                            width={420}
+                            alt="NextUI hero Image"
+                            src="img/about/edicion.jpg"
+                        />
+                    </figure>
+                    <figure className="absolute top-[200px] left-[300px] w-48 h-48">
                         <Image
                             isBlurred
                             width={192}
                             alt="NextUI hero Image"
-                            src="img/about/next.png"
-                            className=""
+                            src="img/about/next.webp"
                         />
                     </figure>
-                    <figure className="absolute top-[190px] left-[120px] w-40 h-40 z-10">
+                    <figure className="absolute top-[190px] left-[120px] w-40 h-40">
                         <Image
                             isBlurred
                             width={160}
                             alt="NextUI hero Image"
-                            src="img/about/play.png"
-                            className=""
+                            src="img/about/play.webp"
                         />
                     </figure>
-                    <figure className="absolute top-[180px] -left-[90px] w-40 h-40 z-10">
+                    <figure className="absolute top-[180px] -left-[90px] w-40 h-40">
                         <Image
                             isBlurred
                             width={160}
                             alt="NextUI hero Image"
-                            src="img/about/back.png"
-                            className=""
+                            src="img/about/back.webp"
                         />
                     </figure>
                 </motion.div>
             </motion.div>
-            <div className="relative flex w-full h-full min-h-[calc(100vh-116px)] z-10">
+            <div className="relative flex w-full h-full min-h-[calc(100vh-116px)]">
                 <div className="flex justify-center items-center w-1/2">
                     <Image
                         isBlurred
                         width={512}
                         alt="NextUI hero Image"
                         src="img/about/back1.svg"
-                        className=""
                     />
                 </div>
-                <div className="flex flex-col justify-center items-start text-left p-4 w-1/2 bg-black/30 backdrop-blur-xl rounded-r-lg">
+                <div className="flex flex-col justify-center items-start text-left p-4 w-1/2">
                     <h3
                         className={
                             barlow.className +
@@ -384,7 +336,7 @@ export default function AboutScroll() {
                 </div>
             </div>
             <div className="relative flex w-full h-full min-h-[calc(100vh-116px)] z-10">
-                <div className="flex flex-col justify-center items-center text-right p-4 w-1/2 bg-black/30 backdrop-blur-xl rounded-lg">
+                <div className="flex flex-col justify-center items-center text-right p-4 w-1/2">
                     <h3
                         className={
                             barlow.className +
@@ -425,7 +377,7 @@ export default function AboutScroll() {
                         className=""
                     />
                 </div>
-                <div className="flex flex-col justify-center items-start text-left p-4 w-1/2 bg-black/30 backdrop-blur-xl rounded-lg">
+                <div className="flex flex-col justify-center items-start text-left p-4 w-1/2">
                     <h3
                         className={
                             barlow.className +

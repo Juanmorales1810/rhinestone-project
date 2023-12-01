@@ -1,6 +1,9 @@
+"use client";
+
 import AboutScroll from "@/components/aboutScroll";
 import { Image } from "@nextui-org/image";
 import { barlow } from "@/config/fonts";
+import Contact from "@/components/contact";
 
 export default function AboutPage() {
     return (
@@ -54,9 +57,8 @@ export default function AboutPage() {
                                 preload="auto"
                                 loop={true}
                                 poster="/img/landing/videoplayback.jpg"
-                            >
-                                <source src="/videos/videoplayback.webm" />
-                            </video>
+                                src="/videos/videoplayback.webm"
+                            />
                             <video
                                 className="absolute right-1/2 bottom-[38%] w-full max-w-4xl h-auto translate-x-1/2 translate-y-1/2 z-0 blur-lg rounded-xl "
                                 autoPlay={true}
@@ -64,16 +66,15 @@ export default function AboutPage() {
                                 preload="auto"
                                 loop={true}
                                 poster="/img/landing/videoplayback.jpg"
-                            >
-                                <source src="/videos/videoplayback.webm" />
-                            </video>
+                                src="/videos/videoplayback.webm"
+                            />
                         </div>
                     </div>
                 </div>
             </section>
             <AboutScroll />
-            <section className="flex justify-center items-center h-full min-h-[calc(100vh-116px)]">
-                otras cosas
+            <section className="flex justify-center items-center w-full h-full min-h-[calc(100vh-116px)]">
+                <Contact />
             </section>
         </section>
     );
