@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     },
     description: siteConfig.description,
     themeColor: [
-        { media: "(prefers-color-scheme: light)", color: "white" },
-        { media: "(prefers-color-scheme: dark)", color: "black" },
+        { media: "(prefers-color-scheme: light)", color: "#fef3c7" },
+        { media: "(prefers-color-scheme: dark)", color: "#27272a" },
     ],
     keywords: ["Video", "Sport", "Tienda"],
     icons: {
@@ -31,9 +31,15 @@ export const metadata: Metadata = {
         telephone: false,
     },
     openGraph: {
-        images: ["/public/img/meta/image-meta.jpg"],
+        images: ["/img/meta/image-meta.jpg"],
         title: siteConfig.name,
         description: siteConfig.description,
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: siteConfig.name,
+        description: siteConfig.description,
+        images: ["/img/meta/image-meta.jpg"],
     },
 };
 
