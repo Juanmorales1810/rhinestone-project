@@ -18,10 +18,22 @@ export const metadata: Metadata = {
         { media: "(prefers-color-scheme: light)", color: "white" },
         { media: "(prefers-color-scheme: dark)", color: "black" },
     ],
+    keywords: ["Video", "Sport", "Tienda"],
     icons: {
         icon: "/favicon.ico",
         shortcut: "/favicon-16x16.png",
         apple: "/apple-touch-icon.png",
+    },
+    creator: "Juan Morales",
+    formatDetection: {
+        email: false,
+        address: false,
+        telephone: false,
+    },
+    openGraph: {
+        images: ["/public/img/metada/image-meta.jpg"],
+        title: siteConfig.name,
+        description: siteConfig.description,
     },
 };
 
