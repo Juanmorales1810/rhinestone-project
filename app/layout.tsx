@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         telephone: false,
     },
     openGraph: {
-        images: ["/public/img/metada/image-meta.jpg"],
+        images: ["/img/meta/image-meta.jpg"],
         title: siteConfig.name,
         description: siteConfig.description,
     },
