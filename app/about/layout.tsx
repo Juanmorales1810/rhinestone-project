@@ -1,3 +1,23 @@
+import { siteConfig } from "@/config/site";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "About",
+    description: "Curiosidades y noticias sobre programación",
+
+    openGraph: {
+        images: ["/img/meta/image-meta.jpg"],
+        title: siteConfig.name,
+        description: siteConfig.description,
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: siteConfig.name,
+        description: siteConfig.description,
+        images: ["/img/meta/image-meta.jpg"],
+    },
+};
+
 export default function AboutLayout({
     children,
 }: {

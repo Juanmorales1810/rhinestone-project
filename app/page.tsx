@@ -1,37 +1,9 @@
-"use client";
-
 import Sponsors from "@/components/parthner-swiper";
 import Videocar from "@/components/videocard";
-import { Input } from "@nextui-org/input";
-import { Textarea } from "@nextui-org/input";
-import { Button } from "@nextui-org/button";
-import {
-    WhatsappLogo,
-    MailLogo,
-    MapLogo,
-    CuitLogo,
-    CalendarLogo,
-    PhoneLogo,
-    InstaLogo,
-} from "@/components/icons";
 import { barlow } from "@/config/fonts";
-import Link from "next/link";
-import { Variants, motion } from "framer-motion";
 import Contact from "@/components/contact";
 
 export default function Home() {
-    const Variants: Variants = {
-        offscreen: {
-            opacity: 0,
-        },
-        onscreen: {
-            opacity: 1,
-
-            transition: {
-                duration: 1.5,
-            },
-        },
-    };
     return (
         <section className="flex flex-col items-center justify-center gap-4 bg-transparent">
             <section className="relative text-center justify-center h-[100svh] w-full overflow-hidden md:h-screen">
@@ -67,13 +39,7 @@ export default function Home() {
                     <Sponsors />
                 </section>
             </section>
-            <motion.section
-                variants={Variants}
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true, amount: 0.5 }}
-                className="flex justify-center items-center h-56 lg:h-[512px] w-full"
-            >
+            <section className="flex justify-center items-center h-56 lg:h-[512px] w-full">
                 <div className="flex items-center justify-between h-32 w-11/12 lg:h-96 lg:w-3/4 max-w-4xl rounded-xl bg-yellow-100 dark:bg-yellow-400/10 shadow-xl">
                     <div className="flex w-1/3 h-full justify-center items-center">
                         <video
@@ -95,7 +61,7 @@ export default function Home() {
                         >
                             PREPARACIÓN PARA EL ÉXITO
                         </h2>
-                        <p className="text-sm lg:text-xl font-normal mt-2 lg:mt-4 overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3]">
+                        <p className="text-sm lg:text-xl font-normal mt-2 lg:mt-4 overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3] md:block">
                             Somos una empresa de renombre que produce videos de
                             entrenamiento de última generación y ofrece
                             artículos de alto rendimiento deportivo. Inspiramos
@@ -104,35 +70,29 @@ export default function Home() {
                         </p>
                     </div>
                 </div>
-            </motion.section>
-            <motion.section
-                variants={Variants}
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true, amount: 0.7 }}
-                className="flex py-12 justify-center items-center h-auto w-full"
-            >
+            </section>
+            <section className="flex py-12 justify-center items-center h-auto w-full">
                 <div className="flex flex-wrap gap-5 items-center justify-center sm:justify-between h-auto w-3/4 max-w-4xl">
                     <Videocar
                         srcimg="/img/runnig.jpg"
                         srcvid="/videos/videocard.webm"
-                        title="VIDEO CARD"
-                        subtitle="Subtitle"
+                        title="Desempeño"
+                        subtitle="Clickeame"
                     />
                     <Videocar
                         srcimg="/img/landing/fondonoise.webp"
                         srcvid="/videos/videocard2.webm"
-                        title="VIDEO CARD"
-                        subtitle="Subtitle"
+                        title="Esfuerzo"
+                        subtitle="Clickeame"
                     />
                     <Videocar
                         srcimg="/img/landing/fondonoise2.jpg"
                         srcvid="/videos/videocard3.webm"
-                        title="VIDEO CARD"
-                        subtitle="Subtitle"
+                        title="Mentalidad"
+                        subtitle="Clickeame"
                     />
                 </div>
-            </motion.section>
+            </section>
             <Contact />
         </section>
     );

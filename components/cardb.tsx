@@ -24,7 +24,7 @@ export default function Cardb() {
                     <Card
                         isPressable
                         onClick={() => route.push(`/blog/${post.slug}`)}
-                        className="w-60 h-80 bg-yellow-100 dark:dark:bg-yellow-400/10"
+                        className="w-60 h-72 bg-yellow-100 dark:dark:bg-yellow-400/10"
                     >
                         <CardHeader className="pb-0 pt-2 px-4 h-[120px] flex-col items-start">
                             <h4

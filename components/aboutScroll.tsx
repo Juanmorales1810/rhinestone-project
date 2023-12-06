@@ -121,9 +121,9 @@ export default function AboutScroll() {
     }, [control1]);
 
     return (
-        <section className="my-40 w-full max-w-6xl">
+        <section className="md:mt-32 w-full max-w-6xl px-4">
             <motion.div
-                className="sticky flex justify-center items-center top-16 w-1/2 h-full min-h-[calc(100vh-116px)] z-20"
+                className="sticky lg:flex justify-center items-center top-16 w-1/2 h-full min-h-[calc(100vh-116px)] z-20 hidden"
                 variants={variants}
                 initial="initial"
                 animate={control1}
@@ -304,16 +304,49 @@ export default function AboutScroll() {
                     </figure>
                 </motion.div>
             </motion.div>
-            <div className="relative flex w-full h-full min-h-[calc(100vh-116px)]">
-                <div className="flex justify-center items-center w-1/2">
+            <div className="relative flex flex-col justify-center items-center w-full h-72 mb-10 lg:hidden">
+                <div className="flex flex-col justify-center items-center h-72 w-full p-4 z-40">
+                    <h2
+                        className={
+                            barlow.className +
+                            " p-2 text-6xl font-bold bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-500 bg-clip-text text-transparent dark:drop-shadow-[0_0px_7px_rgba(255,165,0,0.75)]"
+                        }
+                    >
+                        ¿COMO TRABAJAMOS?
+                    </h2>
+                    <p
+                        className={
+                            barlow.className +
+                            " mt-4 text-xl font-normal lg:text-2xl text-white drop-shadow-[0_0px_7px_rgba(0,0,0,0.95)] dark:drop-shadow-[0_0px_7px_rgba(255,255,255,0.65)]"
+                        }
+                    >
+                        Integrando innovadores videos de entrenamiento con
+                        artículos de alto rendimiento, guiamos a hombres y
+                        mujeres hacia el éxito en maratones. Nuestra experiencia
+                        respalda una experiencia realista y transformadora.
+                    </p>
+                </div>
+            </div>
+            <div className="relative flex flex-col justify-center items-center w-full h-full min-h-[calc(100vh-116px)] lg:flex-row">
+                <div className="flex justify-center items-center md:w-1/2">
+                    <figure className="lg:hidden">
+                        <Image
+                            isBlurred
+                            width={420}
+                            alt="NextUI hero Image"
+                            src="img/about/reunion.jpg"
+                        />
+                    </figure>
+
                     <Image
                         isBlurred
                         width={512}
                         alt="NextUI hero Image"
                         src="img/about/back1.svg"
+                        className="hidden lg:block"
                     />
                 </div>
-                <div className="flex flex-col justify-center items-start text-left p-4 w-1/2">
+                <div className="flex flex-col justify-center items-start text-center lg:text-left p-4 lg:w-1/2">
                     <h3
                         className={
                             barlow.className +
@@ -335,8 +368,8 @@ export default function AboutScroll() {
                     </p>
                 </div>
             </div>
-            <div className="relative flex w-full h-full min-h-[calc(100vh-116px)] z-10">
-                <div className="flex flex-col justify-center items-center text-right p-4 w-1/2">
+            <div className="relative flex flex-col-reverse justify-center items-center w-full h-full min-h-[calc(100vh-116px)] z-10 lg:flex-row">
+                <div className="flex flex-col justify-center items-center text-center lg:text-right p-4 lg:w-1/2">
                     <h3
                         className={
                             barlow.className +
@@ -357,27 +390,43 @@ export default function AboutScroll() {
                         fama, equilibrando la ambición con la realidad.
                     </p>
                 </div>
-                <div className="flex justify-center items-center w-1/2">
+                <div className="flex justify-center items-center lg:w-1/2">
+                    <figure className="lg:hidden">
+                        <Image
+                            isBlurred
+                            width={420}
+                            alt="NextUI hero Image"
+                            src="img/about/realidad.jpg"
+                        />
+                    </figure>
                     <Image
                         isBlurred
                         width={512}
                         alt="NextUI hero Image"
                         src="img/about/back2.svg"
-                        className=""
+                        className="hidden lg:block"
                     />
                 </div>
             </div>
-            <div className="relative flex w-full h-full min-h-[calc(100vh-116px)] z-10">
-                <div className="flex justify-center items-center w-1/2">
+            <div className="relative flex flex-col justify-center items-center w-full h-full min-h-[calc(100vh-116px)] lg:flex-row">
+                <div className="flex justify-center items-center lg:w-1/2">
+                    <figure className="lg:hidden">
+                        <Image
+                            isBlurred
+                            width={420}
+                            alt="NextUI hero Image"
+                            src="img/about/edicion.jpg"
+                        />
+                    </figure>
                     <Image
                         isBlurred
                         width={512}
                         alt="NextUI hero Image"
                         src="img/about/back3.svg"
-                        className=""
+                        className="hidden lg:block"
                     />
                 </div>
-                <div className="flex flex-col justify-center items-start text-left p-4 w-1/2">
+                <div className="flex flex-col justify-center items-start text-center lg:text-left p-4 lg:w-1/2">
                     <h3
                         className={
                             barlow.className +

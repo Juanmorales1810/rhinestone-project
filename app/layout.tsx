@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     ],
     keywords: ["Video", "Sport", "Tienda"],
     icons: {
-        icon: "/favicon.ico",
+        icon: "/favicon-32x32.png",
         shortcut: "/favicon-16x16.png",
         apple: "/apple-touch-icon.png",
     },

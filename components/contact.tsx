@@ -1,5 +1,5 @@
 import { barlow } from "@/config/fonts";
-import { Variants, motion } from "framer-motion";
+
 import Link from "next/link";
 import {
     CalendarLogo,
@@ -14,26 +14,8 @@ import { Input, Textarea } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 
 export default function Contact() {
-    const Variants: Variants = {
-        offscreen: {
-            opacity: 0,
-        },
-        onscreen: {
-            opacity: 1,
-
-            transition: {
-                duration: 1.5,
-            },
-        },
-    };
     return (
-        <motion.section
-            variants={Variants}
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={{ once: true, amount: 0.7 }}
-            className="flex flex-col justify-center items-center h-auto lg:h-[640px] w-full"
-        >
+        <section className="flex flex-col justify-center items-center h-auto lg:h-[640px] w-full">
             <h2
                 className={
                     barlow.className +
@@ -141,6 +123,6 @@ export default function Contact() {
                     </form>
                 </div>
             </div>
-        </motion.section>
+        </section>
     );
 }

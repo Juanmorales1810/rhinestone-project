@@ -27,8 +27,8 @@ export default function AboutPage() {
                         className="object-contain lg:hidden"
                     />
                 </div>
-                <div className="flex justify-center p-4 w-full max-w-5xl h-auto">
-                    <div>
+                <div className="flex justify-center items-start p-4 w-full max-w-5xl h-auto">
+                    <div className="mt-10">
                         <h1
                             className={
                                 barlow.className +
@@ -49,9 +49,9 @@ export default function AboutPage() {
                             a hombres y mujeres a alcanzar su grandeza de manera
                             realista, respaldados por una sólida trayectoria.
                         </p>
-                        <div className="">
+                        <div>
                             <video
-                                className="absolute right-1/2 bottom-[38%] w-full max-w-4xl h-auto translate-x-1/2 translate-y-1/2 z-10 rounded-xl "
+                                className="absolute right-1/2 bottom-[28%] md:bottom-[32%] w-full max-w-4xl h-auto translate-x-1/2 translate-y-1/2 z-10 rounded-xl"
                                 autoPlay={true}
                                 muted={true}
                                 preload="auto"
@@ -60,7 +60,7 @@ export default function AboutPage() {
                                 src="/videos/videoplayback.webm"
                             />
                             <video
-                                className="absolute right-1/2 bottom-[38%] w-full max-w-4xl h-auto translate-x-1/2 translate-y-1/2 z-0 blur-lg rounded-xl "
+                                className="absolute right-1/2 bottom-[28%] md:bottom-[32%] w-full max-w-4xl h-auto translate-x-1/2 translate-y-1/2 z-0 blur-lg rounded-xl"
                                 autoPlay={true}
                                 muted={true}
                                 preload="auto"
@@ -73,7 +73,7 @@ export default function AboutPage() {
                 </div>
             </section>
             <AboutScroll />
-            <section className="flex justify-center items-center w-full h-full min-h-[calc(100vh-116px)]">
+            <section className="flex justify-center items-center w-full h-auto">
                 <Contact />
             </section>
         </section>
